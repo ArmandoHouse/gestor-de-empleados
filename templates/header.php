@@ -1,3 +1,7 @@
+<?php 
+    $url_base = "http://localhost/gestor-de-empleados/";
+?>
+
 <!doctype html>
 <html lang="en">
 
@@ -18,16 +22,16 @@
     <nav class="navbar navbar-expand navbar-light bg-light">
         <ul class="nav navbar-nav">
             <li class="nav-item">
-                <a class="nav-link active" href="#" aria-current="page">Sistema <span class="visually-hidden">(current)</span></a>
+                <a class="nav-link active" href="<?php echo $url_base;?>" aria-current="page">Sistema <span class="visually-hidden">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Empleados</a>
+                <a class="nav-link" href="<?php echo $url_base;?>secciones/empleados">Empleados</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Puestos</a>
+                <a class="nav-link" href="<?php echo $url_base;?>secciones/puestos">Puestos</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Usuarios</a>
+                <a class="nav-link" href="<?php echo $url_base;?>secciones/usuarios">Usuarios</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">Cerrar Sesion</a>
