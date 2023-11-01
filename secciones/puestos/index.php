@@ -1,6 +1,14 @@
 <?php 
 include("../../bd.php");
 
+if (isset($_GET['txtID'])) {
+    $txtID=(isset($_GET['txtID']))?$_GET['txtID']:"";
+    $sentencia=$conexion->prepare("DELETE FROM puestos WHERE id = :id");
+    $sentencia->bindParam(":id", $txtID);
+    $sentencia->execute();
+    header("Location:index.php");
+}
+
 $sentencia=$conexion->prepare("SELECT * FROM `puestos`");
 $sentencia->execute();
 
@@ -37,7 +45,8 @@ $lista_puestos=$sentencia->fetchAll(PDO::FETCH_ASSOC);
                             <td><?php echo $registro['nombreDelPuesto'];?></td>
                             <td>
                                 <input name="btneditar" id="btneditar" class="btn btn-primary" type="button" value="Editar">
-                                <input name="btneliminar" id="btneliminar" class="btn btn-danger" type="button" value="Eliminar">
+                                |
+                                <a class="btn btn-danger" href="index.php?txtID=<?php echo $registro['id'];?>" role="button">Eliminar</a>
                             </td>
                         </tr>
 
